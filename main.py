@@ -5,8 +5,9 @@ Authors: Jimmie DiGiacinto, Joseph Teniente, Christian Degollado,
 Nikolaus Herrera, Grant Carrell
 
 Purpose: To allow the user to connect to a specified LDAP server and
-upload, download, delete, and move files. The client will incorporate end-to-end
-encryption and other methods to verify confidentiality and file integrity.
+upload, download, delete, and move files. The client will incorporate 
+end-to-end encryption and other methods to verify confidentiality and 
+file integrity.
 '''
 #PACKAGE IMPORTS
 
@@ -16,7 +17,9 @@ print("Welcome to Metro LDAP file management client.\n")
 
 
 #PROMPT USER FOR THE SERVER IP ADDRESS
-serverIP = input("Please specify the IP address of the server you're accessing:  ")
+def promptIP():
+    serverIP = input("Please specify the Domain or IP address of the server you're accessing:  ")
+    return serverIP
 
 
 validIP = False
@@ -40,8 +43,9 @@ def checkIP(ip):
     except (AttributeError, TypeError):
         return False # address is not a string.
 
-
-checkIP(serverIP)
+while True:
+    serverIP = promptIP()
+    checkIP(serverIP)
 
 
 #VERIFY THAT THE IP ADDRESS IS VALID, THEN PRINT STATUS MESSAGE
